@@ -1,4 +1,4 @@
-syntax on
+syntax off
 set expandtab
 set tabstop=2
 set shiftwidth=2

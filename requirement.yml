@@ -1,0 +1,31 @@
+---
+# applications that havent included
+# antibody
+# exa
+
+  pre-task:
+  - name: Ensure cache is updated
+    apt:
+      update_cache: true
+      cache_valid_time: 3600
+
+  tasks:
+  - name: Ensure stow is installed
+    apt: 
+      name: "stow"
+      state: latest
+
+  - name: Ensure tmux is installed
+    apt: 
+      name: "tmux"
+      state: latest
+
+  - name: Ensure nvim is installed
+    apt: 
+      name: "nvim"
+      state: latest
+
+  - name: Ensure zsh is installed
+    apt: 
+      name: "zsh"
+      state: latest
