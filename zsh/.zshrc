@@ -41,7 +41,8 @@ autoload -U colors && colors
 # PS1="%F{214}%K{000}%m%F{015}%K{000}:%F{039}%K{000}%~%F{015}%K{000}\$ "
 #PS1='%(?.%F{green}.%F{red})%n@%m:%~%# %f'
 #PS1='20%D %* > '
-PS1=' %F{green}%* : %~ %f > '
+#PS1=' %F{green}%* : %~ %f > '
+PS1='%(?.%F{green}.%F{red})%* : %~ %f > '
 # PS1='%(?.%F{green}.%F{red})%n@%m:%F{141}%d$ %F{reset}'
 # PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
 
