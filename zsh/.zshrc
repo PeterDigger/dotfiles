@@ -23,6 +23,11 @@ alias vnvim='nvim ~/.config/nvim/init.vim'
 alias vtmux='nvim ~/.tmux.conf'
 alias vzsh='nvim ~/.zshrc'
 
+# LazyApps
+
+alias lg='lazygit'
+alias ld='lazydocker'
+
 ## ECL (Eye Candy Land) Zone
 
 # enable color
@@ -47,3 +52,8 @@ export EDITOR=nvim || export EDITOR=vim
 ## Source Plugins
 
 source ~/.zsh_plugins.sh
+
+## Change bind keys so that I can move faster
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
