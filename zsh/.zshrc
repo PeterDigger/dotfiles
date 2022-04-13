@@ -18,6 +18,11 @@ fi
 
 # Editor
 
+if (( ${+commands[which][nvim]} ))
+then
+  alias vim='nvim'
+fi
+
 alias v='nvim'
 alias vnvim='nvim ~/.config/nvim/init.vim'
 alias vtmux='nvim ~/.tmux.conf'
@@ -42,7 +47,14 @@ autoload -U colors && colors
 #PS1='%(?.%F{green}.%F{red})%n@%m:%~%# %f'
 #PS1='20%D %* > '
 #PS1=' %F{green}%* : %~ %f > '
-PS1='%(?.%F{green}.%F{red})%* : %~ %f > '
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%b'
+# RPROMPT='${vcs_info_msg_0_}'
+# PROMPT='${vcs_info_msg_0_}%# '
+PS1='%(?.%F{green}.%F{red})%* : %~ %f%F{yellow}${vcs_info_msg_0_}%f > '
 # PS1='%(?.%F{green}.%F{red})%n@%m:%F{141}%d$ %F{reset}'
 # PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
 
