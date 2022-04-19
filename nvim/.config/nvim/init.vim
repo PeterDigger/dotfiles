@@ -41,6 +41,9 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+nnoremap <silent> <S-j> :bnext<CR>==
+nnoremap <silent> <S-k> :bprevious<CR>==
+
 " Seoul256 theme
 "colorscheme seoul256
 colorscheme catppuccin

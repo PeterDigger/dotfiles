@@ -26,7 +26,25 @@ fi
 alias v='nvim'
 alias vnvim='nvim ~/.config/nvim/init.vim'
 alias vtmux='nvim ~/.tmux.conf'
-alias vzsh='nvim ~/.zshrc'
+alias vzsh='nvim ~/.config/zsh/.zshrc'
+
+# Safety
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# useful options
+setopt autocd extendedglob nomatch menucomplete correct
+setopt interactive_comments
+# Disable Ctrl+S
+stty stop undef
+# Enable History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zsh/history
+# beep bye
+unsetopt BEEP
 
 # LazyApps
 
@@ -64,7 +82,7 @@ export EDITOR=nvim || export EDITOR=vim
 
 ## Source Plugins
 
-source ~/.zsh_plugins.sh
+source $ZDOTDIR/zsh_plugins.sh
 
 ## Change bind keys so that I can move faster
 
