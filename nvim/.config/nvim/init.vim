@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'psliwka/vim-smoothie' 
 	Plug 'tpope/vim-fugitive'
         Plug 'neovim/nvim-lspconfig'
+        Plug 'folke/zen-mode.nvim'
 call plug#end()
 
 "" Require Lua config
@@ -43,6 +44,8 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 nnoremap <silent> <S-j> :bnext<CR>==
 nnoremap <silent> <S-k> :bprevious<CR>==
+
+nnoremap <silent> <Leader>g :ZenMode<CR>==
 
 " Seoul256 theme
 "colorscheme seoul256
