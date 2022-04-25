@@ -3,6 +3,11 @@
 	Run, wt ; Windows Terminal
 return
 
+#BackSpace::
+	Sleep 1000
+	SendMessage, 0x112, 0xF170, 2,, Program Manager
+	; https://superuser.com/questions/321342/turn-off-display-in-windows-on-command
+return
 
 ; Windows + Shift + Wheel up
 #+WheelDown::SoundSet,-5
