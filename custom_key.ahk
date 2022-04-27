@@ -1,7 +1,23 @@
+#NoEnv ;
+#Warn ;
+SendMode Input ;
+
 ; Windows + enter
 #Enter::
 	Run, wt ; Windows Terminal
-return
+Return
+
+; Im too lazy to type emails and date lul
+:*:]cph::Chong Phit Herng
+:*:]@c::chongherng99@gmail.com
+:*:]@p::360pitlord@gmail.com
+:*:]@b::bi19110193@student.ums.edu.my
+:*:]nb::BI19110193
+
+:*:]d::  ; This hotstring replaces "]d" with the current date and time via the commands below.
+FormatTime, CurrentDateTime,, M/d/yyyy h:mm tt  ; It will look like 9/1/2005 3:53 PM
+SendInput %CurrentDateTime%
+Return
 
 #BackSpace::
 	Sleep 1000
@@ -11,18 +27,12 @@ return
 
 ; Windows + Shift + Wheel up
 #+WheelDown::SoundSet,-5
-Send {Volume_Down}
-Return
 
 ; Windows + Shift + Wheel Down
 #+WheelUp::SoundSet,+5
-Send {Volume_Up}
-Return
 
 ; Windows + Shift + Middle button
 #+MButton::SoundSet, +1 , ,mute
-Send {Volume_Up}
-Return
 
 ; Windows + Wheel Up
 #WheelUp::
