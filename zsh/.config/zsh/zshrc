@@ -57,13 +57,16 @@ fi
 if command -v nvim >/dev/null ;then
 	alias vim='nvim'
 	alias v='nvim'
+	alias vzsh='nvim ~/.config/zsh/.zshrc'
+	alias vnvim='nvim ~/.config/nvim/init.vim'
+	alias vtmux='nvim ~/.tmux.conf'
 else
+	alias vzsh='vim ~/.config/zsh/.zshrc'
+	alias vnvim='vim ~/.config/nvim/init.vim'
+	alias vtmux='vim ~/.tmux.conf'
 	alias v='vim'
 fi
 
-alias vnvim='nvim ~/.config/nvim/init.vim'
-alias vtmux='nvim ~/.tmux.conf'
-alias vzsh='nvim ~/.config/zsh/.zshrc'
 
 # LazyApps
 if command -v lazygit >/dev/null ;then
@@ -78,7 +81,6 @@ fi
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-
 
 ## ECL (Eye Candy Land) Zone -------------------------
 
@@ -95,7 +97,7 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '%b'
 # RPROMPT='${vcs_info_msg_0_}'
 # PROMPT='${vcs_info_msg_0_}%# '
-PS1='%(?.%F{green}.%F{red})%* : %~ %f%F{yellow}${vcs_info_msg_0_}%f > '
+PS1='%(?.%F{green}.%F{red})%* (%m) : %~ %f%F{yellow}${vcs_info_msg_0_}%f > '
 # PS1='%(?.%F{green}.%F{red})%n@%m:%F{141}%d$ %F{reset}'
 # PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
 
