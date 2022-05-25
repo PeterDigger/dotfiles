@@ -1,1 +1,6 @@
 *.exe
+.zcompdump
+*.swp
+*.sh
+vim/.config/vim/*/*
+vim/.config/vim/viminfo

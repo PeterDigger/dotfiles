@@ -1,0 +1,64 @@
+" This vimrc was guided by https://vi.stackexchange.com/questions/11879/how-can-put-vimrc-and-viminfo-into-vim-directory
+
+set nocompatible
+
+" --- Prerequisite ---
+" Install vim-plug
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+       silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" make sure swap folder exists
+if empty(glob('~/.config/vim/swap/'))
+       silent !mkdir -p ~/.config/vim/swap/
+endif
+
+" make sure backup folder exists
+if empty(glob('~/.config/vim/backup/'))
+       silent !mkdir -p ~/.config/vim/backup/
+endif
+
+" make sure undo folder exists
+if empty(glob('~/.config/vim/undo/'))
+       silent !mkdir -p ~/.config/vim/undo
+endif
+
+" --- General Settings ----
+set backspace=indent,eol,start
+set ruler
+set showcmd
+set incsearch
+set hlsearch
+set relativenumber
+set wrap linebreak
+set mouse=a
+syntax on
+
+" --- Plugins ---
+call plug#begin('~/.config/vim/plugged')
+	Plug 'morhetz/gruvbox'
+	Plug 'junegunn/goyo.vim'
+	Plug 'https://github.com/lambdalisue/fern.vim.git'
+call plug#end()
+
+" --- Colourscheme ---
+colorscheme gruvbox
+set bg=dark
+
+" --- set the autoload directory --- 
+set runtimepath+=~/.config/vim,~/.config/vim/after
+
+" --- set viminfo in new place ---
+set viminfo+=n~/.config/vim/viminfo
+
+" --- set swap files into swap folder ---
+set directory=~/.config/vim/swap//,.,~/tmp,/var/tmp,/tmp
+
+" --- set backup files into backup folder ---
+set backupdir=~/.config/vim/backup//,.,~/tmp,~
+
+" --- set undo files into undo folder
+set undodir=~/.config/vim/undo//,.
+
