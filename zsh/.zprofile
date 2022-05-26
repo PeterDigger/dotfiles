@@ -36,3 +36,8 @@ if [ -n "$ZSH_VERSION" ]; then
 	. "$ZDOTDIR/zshrc"
     fi
 fi
+
+# starts tmux every new session
+if [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
