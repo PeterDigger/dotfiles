@@ -37,7 +37,12 @@ if [ -f "~/.config/vim" ]; then
 	export VIMDIR="~/.config/vim"
 	export VIMINIT="source ~/.config/vim/vimrc"
 fi
-export EDITOR=nvim || export EDITOR=vim
+
+if command -v nvim >/dev/null ;then
+        export EDITOR=nvim
+else
+        export EDITOR=vim
+fi
 
 ## Alias Zone -------------------------
 
