@@ -33,8 +33,10 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 ## Variables Zone
-export VIMDIR="~/.config/vim"
-export VIMINIT="source ~/.config/vim/vimrc"
+if [ -f "~/.config/vim" ]; then
+	export VIMDIR="~/.config/vim"
+	export VIMINIT="source ~/.config/vim/vimrc"
+fi
 export EDITOR=nvim || export EDITOR=vim
 
 ## Alias Zone -------------------------
