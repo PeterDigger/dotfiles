@@ -15,7 +15,12 @@ Return
 :*:]nb::BI19110193
 
 :*:]d::  ; This hotstring replaces "]d" with the current date and time via the commands below.
-FormatTime, CurrentDateTime,, M/d/yyyy h:mm tt  ; It will look like 9/1/2005 3:53 PM
+FormatTime, CurrentDateTime,, MMM/d/yyyy h:mm tt  ; It will look like 9/1/2005 3:53 PM
+SendInput %CurrentDateTime%
+Return
+
+:*:]e::  ; This hotstring replaces "]e" with the current date and time via the commands below.
+FormatTime, CurrentDateTime,, MMMM,d yyyy H:mm ; It will look like 9/1/2005 3:53 PM
 SendInput %CurrentDateTime%
 Return
 
@@ -25,14 +30,65 @@ Return
 	; Source: https://superuser.com/questions/321342/turn-off-display-in-windows-on-command
 return
 
+; Emuluate Mouse clicks
+#!g::Send {LButton}
+#!;::Send {RButton}
+
+; Vim Mouse cursor control
+#!h::MouseMove, -5, 0, 50, R
+#!j::MouseMove, 0, -5, 50, R
+#!k::MouseMove, 0, +5, 50, R
+#!l::MouseMove, 5, 0, 50, R
+
+; Windows + Control + Wheel Up
+#^WheelUp::Send       {Media_Prev}
+
+; Windows + Control + Middle button
+#^MButton::Send      {Media_Play_Pause} 
+
+; Windows + Control + Wheel Down
+#^WheelDown::Send      {Media_Next} 
+
+; Windows + Control + [
+#^[::Send       {Media_Prev}
+
+; Windows + Control + ]
+#^]::Send      {Media_Play_Pause} 
+
+; Windows + Control + \
+#^\::Send      {Media_Next} 
+
 ; Windows + Shift + Wheel up
-#+WheelDown::SoundSet,-5
+#+WheelDown::
+Send {Volume_Down}
+   return   
 
 ; Windows + Shift + Wheel Down
-#+WheelUp::SoundSet,+5
+#+WheelUp::
+Send {Volume_Up}
+   return   
+
+; Windows + Shift + {
+#{::
+Send {Volume_Down}
+   return     
+
+; Windows + Shift + }
+#}::
+Send {Volume_Up}
+   return   
 
 ; Windows + Shift + Middle button
-#+MButton::SoundSet, +1 , ,mute
+#+MButton::
+Send {Volume_Mute}
+   return  
+
+; Windows + Shift + |
+#|::
+Send {Volume_Mute}
+   return  
+
+;-------------------------------------
 
 ; Windows + Wheel Up
 #WheelUp::
@@ -41,6 +97,16 @@ return
 
 ; Windows + Wheel Down
 #WheelDown::
+  AdjustScreenBrightness(-10)
+  Return
+
+; Windows + ]
+#]::
+  AdjustScreenBrightness(10)
+  Return
+
+; Windows + [
+#[::
   AdjustScreenBrightness(-10)
   Return
   
